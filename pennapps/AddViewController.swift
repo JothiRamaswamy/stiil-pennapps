@@ -8,11 +8,65 @@
 
 import UIKit
 import Charts
-import DocuSignSDK
+import MessageUI
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var datePcr: UIDatePicker!
+    
+    func emailAsk() {
+        
+        let emailAlert = UIAlertController(title: "Email your information", message: "Do you want to email yourself the information you just entered?", preferredStyle: .alert)
+        
+        let yes = UIAlertAction(title: "Yes", style: .default) { (action:UIAlertAction) in
+            self.sendEmail()
+        }
+        let no = UIAlertAction(title: "No thanks", style: .default) { (action:UIAlertAction) in
+            
+        }
+        emailAlert.addAction(yes)
+        emailAlert.addAction(no)
+        present(emailAlert, animated: true, completion: nil)
+        
+    }
+    
+    func sendEmail() {
+        let mailComposeVC = configureMailController()
+        if MFMailComposeViewController.canSendMail(){
+            self.present(mailComposeVC, animated: true, completion: nil)
+        } else {
+            emailError()
+        }
+    }
+    
+    func configureMailController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients(["jothiramaswamy4@gmail.com"])
+        
+        mailComposerVC.setSubject("Event Added to Still!")
+        
+        mailComposerVC.setMessageBody("how are you?", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func emailError() {
+        let sendMailErrorAlert = UIAlertController(title: "Cannot send email", message: "Your device cannot send emails", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Dismiss", style: .default) { (action:UIAlertAction) in
+            
+        }
+        
+        sendMailErrorAlert.addAction(action)
+        present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func addBtn(_ sender: Any) {
         
         let alertController = UIAlertController(title: "Are you sure?", message: "If you add this event, you cannot delete in the future. Are you sure you want to add it?", preferredStyle: .alert)
@@ -33,26 +87,37 @@ class AddViewController: UIViewController {
     
     func added() {
         
-        var e = UserDefaults.standard.array(forKey: "added")
-        if e == nil {
-            e = []
+        var month = UserDefaults.standard.array(forKey: "month")
+        if month == nil {
+            month = []
         }
-
+        var year = UserDefaults.standard.array(forKey: "year")
+        if year == nil {
+            year = []
+        }
         
+        let m = Calendar.current.component(.month, from: datePcr.date)
         
-        let component = Calendar.current.component(.month, from: datePcr.date)
-        let now = Calendar.current.component(.month, from: Date())
-        e?.append(now-component)
-        UserDefaults.standard.set(e!, forKey: "added")
-        print(e!)
+        month?.append(m)
+        UserDefaults.standard.set(month!, forKey: "month")
+        print(month!)
+        
+        let y = Calendar.current.component(.year, from: datePcr.date)
+        
+        year?.append(y)
+        UserDefaults.standard.set(year!, forKey: "year")
+        print(year!)
+        
         let alertController = UIAlertController(title: "Added!", message: "Your event has now been added to your record. Go to home to check your progress!", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Dismiss", style: .default) { (action:UIAlertAction) in
-            print("You've pressed the destructive");
-            
+            self.descriptionView.text = ""
+            self.datePcr.date = Date()
+            self.emailAsk()
         }
         alertController.addAction(action)
         present(alertController, animated: true, completion: nil)
+
     }
     
     @IBOutlet weak var descriptionView: UITextView!

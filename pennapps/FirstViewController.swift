@@ -8,36 +8,59 @@
 
 import UIKit
 import Charts
-import DocuSignSDK
 
 class FirstViewController: UIViewController {
-
-    @IBOutlet weak var lineChartView: LineChartView!
-    @IBAction func sendBtn(_ sender: Any) {
-        
-        let alertController = UIAlertController(title: "Sent!", message: "An email has been sent to ensure confidentiality of your information before your designated professional can access your data",  preferredStyle: .alert)
-        let action = UIAlertAction(title: "Dismiss", style: .default) { (action:UIAlertAction) in
-            print("");
-            
-        }
-        alertController.addAction(action)
-        present(alertController, animated: true, completion: nil)
-        
-    }
     
+    var firstName = ""
+
+    @IBOutlet weak var yAxis: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet weak var subtitle: UILabel!
+    
+    func loadDates() -> [Int] {
+        let months = UserDefaults.standard.array(forKey: "month") as? [Int]
+        
+        if months == nil {
+            print("returned")
+            return []
+        }
+        
+        let years = UserDefaults.standard.array(forKey: "year") as! [Int]
+        
+        let count = years.count
+        
+        var events = [Int]()
+        for i in 0..<count{
+                    let monthNow = Calendar.current.component(.month, from: Date())
+                    let yearNow = Calendar.current.component(.year, from: Date())
+            if yearNow - years[i] == 1 {
+                events.append(monthNow-months![i] + 12)
+                    }
+            else if years[i] == yearNow{
+                events.append(monthNow-months![i])
+                    }
+        }
+        //
+        print(count)
+        return events
+    }
+
     func getData() -> [Int] {
         var final = [0,0,0,0,0,0,0,0,0,0,0,0]
-        let events = UserDefaults.standard.array(forKey: "added")
-        if events == nil {
+        let events = loadDates()
+        
+        if events.count == 0 {
             return final
         }
-        for e in events! {
-            var event = e as! Int
+        for e in events {
+            var event = e
             if event < 0 {
                 event += 12
             }
-            if (11-event > -2){
-                final[event-1] += 1
+            if (11-event > -1){
+                print(11-event)
+                final[11-event] += 1
             }
         }
         return final;
@@ -71,19 +94,53 @@ class FirstViewController: UIViewController {
         lineChartView.dragEnabled = true
         lineChartView.setVisibleXRangeMaximum(5)
         self.lineChartView.legend.enabled = false
+        self.lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values:["12","11","10","9","8","7","6","5","4","3","2", "1", "0"])
+        self.lineChartView.leftAxis.axisMinimum = 0
+        self.lineChartView.rightAxis.axisMinimum = 0
+        self.lineChartView.leftAxis.axisMaximum = lineChartView.data!.yMax + 4.0
+        self.lineChartView.rightAxis.axisMaximum = lineChartView.data!.yMax + 4.0
+        self.lineChartView.xAxis.granularity = 1
+        self.lineChartView.leftAxis.granularity = 1
+        self.lineChartView.rightAxis.granularity = 1
         
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        yAxis.transform = CGAffineTransform(rotationAngle: 3 * CGFloat.pi / 2)
+        setChartValues()
+        firstName = "there"
+        guard let name = UserDefaults.standard.string(forKey: "name") else {
+            print("there")
+            return
+        }
         
+        let first = name.components(separatedBy: ",")
+        if first.count == 1 {
+            firstName = first[0]
+        } else {
+            firstName = first[1]
+        }
+        titleLabel.text = "Hello, \(firstName)!"
+        titleLabel.adjustsFontSizeToFitWidth = true
         
         // Do any additional setup after loading the view, typically from a nib.
-        setChartValues()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        guard let name = UserDefaults.standard.string(forKey: "name") else {
+            firstName = "there"
+            return
+        }
+        let first = name.components(separatedBy: ",")
+        if first.count == 1 {
+            firstName = first[0]
+        } else {
+            firstName = first[1]
+        }
+        titleLabel.text = "Hello, \(firstName)!"
+        titleLabel.adjustsFontSizeToFitWidth = true
         print(getData())
         setChartValues()
     }

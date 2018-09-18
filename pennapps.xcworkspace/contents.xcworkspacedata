@@ -5,9 +5,6 @@
       location = "group:pennapps.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../Downloads/iOS-offline-templates-sdk-master 2/docusign-sdk-sample-swift">
-   </FileRef>
-   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

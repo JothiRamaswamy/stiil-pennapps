@@ -8,19 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		8708223F21443BB400DD504C /* IMG_4772.png in Resources */ = {isa = PBXBuildFile; fileRef = 8708223D21443BB300DD504C /* IMG_4772.png */; };
-		870822412144577000DD504C /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870822402144577000DD504C /* profile.swift */; };
 		87082246214492FC00DD504C /* native-stroke-render.png in Resources */ = {isa = PBXBuildFile; fileRef = 87082245214492FC00DD504C /* native-stroke-render.png */; };
 		870822482144932300DD504C /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = 870822472144932200DD504C /* person.png */; };
 		8708224A2144940300DD504C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870822492144940200DD504C /* ViewController.swift */; };
-		8708225B21449F8500DD504C /* DocuSignSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8708225A21449F8500DD504C /* DocuSignSDK.framework */; };
-		8708225C21449F9000DD504C /* DocuSignSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8708225A21449F8500DD504C /* DocuSignSDK.framework */; };
-		8708225D21449F9000DD504C /* DocuSignSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8708225A21449F8500DD504C /* DocuSignSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8708225F2144E02B00DD504C /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 8708225E2144E02B00DD504C /* ios */; };
 		87D49C9221439E95005A761F /* IMG_4768.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 87D49C9121439E95005A761F /* IMG_4768.PNG */; };
 		87D49C9821439F9E005A761F /* IMG_4769.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 87D49C9721439F9E005A761F /* IMG_4769.PNG */; };
 		87D49C9A2143A01E005A761F /* IMG_4770.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 87D49C992143A01D005A761F /* IMG_4770.PNG */; };
 		87D49C9C2143A090005A761F /* IMG_4771.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 87D49C9B2143A090005A761F /* IMG_4771.PNG */; };
-		87D49CA82143EFC9005A761F /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D49CA52143EF98005A761F /* Charts.framework */; };
-		87D49CA92143EFC9005A761F /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 87D49CA52143EF98005A761F /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		87D5B47321440F2C0087BEB4 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D5B47221440F2C0087BEB4 /* AddViewController.swift */; };
 		87E5A9162143603D006CAB9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E5A9152143603D006CAB9B /* AppDelegate.swift */; };
 		87E5A9182143603D006CAB9B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E5A9172143603D006CAB9B /* FirstViewController.swift */; };
@@ -31,30 +26,6 @@
 		89748A4038838312E6EAEFB4 /* Pods_pennapps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F6F9A771F20FFA550C45DE /* Pods_pennapps.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		87D49CA42143EF98005A761F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 87D49C9F2143EF98005A761F /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
-			remoteInfo = Charts;
-		};
-		87D49CA62143EF98005A761F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 87D49C9F2143EF98005A761F /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
-			remoteInfo = ChartsTests;
-		};
-		87D49CAA2143EFC9005A761F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 87D49C9F2143EF98005A761F /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A58A4ED274A941CA248EA921;
-			remoteInfo = Charts;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		87D49CAC2143EFCA005A761F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -62,8 +33,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				87D49CA92143EFC9005A761F /* Charts.framework in Embed Frameworks */,
-				8708225D21449F9000DD504C /* DocuSignSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,16 +43,14 @@
 		46F6F9A771F20FFA550C45DE /* Pods_pennapps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pennapps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4727F4FDC8E831A8AF153A94 /* Pods-pennapps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pennapps.release.xcconfig"; path = "Pods/Target Support Files/Pods-pennapps/Pods-pennapps.release.xcconfig"; sourceTree = "<group>"; };
 		8708223D21443BB300DD504C /* IMG_4772.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMG_4772.png; path = ../../../Downloads/IMG_4772.png; sourceTree = "<group>"; };
-		870822402144577000DD504C /* profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
 		87082245214492FC00DD504C /* native-stroke-render.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "native-stroke-render.png"; path = "../../../Downloads/native-stroke-render.png"; sourceTree = "<group>"; };
 		870822472144932200DD504C /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = person.png; path = "../../../Downloads/Still-App-master/Still-EmergencyScreen/Still-EmergencyScreen/Assets.xcassets/person.imageset/person.png"; sourceTree = "<group>"; };
 		870822492144940200DD504C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "../../../Downloads/Still-App-master/Still-EmergencyScreen/Still-EmergencyScreen/ViewController.swift"; sourceTree = "<group>"; };
-		8708225A21449F8500DD504C /* DocuSignSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DocuSignSDK.framework; sourceTree = "<group>"; };
+		8708225E2144E02B00DD504C /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ios; sourceTree = "<group>"; };
 		87D49C9121439E95005A761F /* IMG_4768.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_4768.PNG; sourceTree = "<group>"; };
 		87D49C9721439F9E005A761F /* IMG_4769.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_4769.PNG; sourceTree = "<group>"; };
 		87D49C992143A01D005A761F /* IMG_4770.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_4770.PNG; sourceTree = "<group>"; };
 		87D49C9B2143A090005A761F /* IMG_4771.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_4771.PNG; sourceTree = "<group>"; };
-		87D49C9F2143EF98005A761F /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master copy/Charts.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		87D5B47221440F2C0087BEB4 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		87E5A9122143603D006CAB9B /* pennapps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pennapps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87E5A9152143603D006CAB9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,10 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87D49CA82143EFC9005A761F /* Charts.framework in Frameworks */,
-				8708225B21449F8500DD504C /* DocuSignSDK.framework in Frameworks */,
 				89748A4038838312E6EAEFB4 /* Pods_pennapps.framework in Frameworks */,
-				8708225C21449F9000DD504C /* DocuSignSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,19 +83,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		87D49CA02143EF98005A761F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				87D49CA52143EF98005A761F /* Charts.framework */,
-				87D49CA72143EF98005A761F /* ChartsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		87E5A9092143603D006CAB9B = {
 			isa = PBXGroup;
 			children = (
-				8708225A21449F8500DD504C /* DocuSignSDK.framework */,
 				87E5A9142143603D006CAB9B /* pennapps */,
 				87E5A9132143603D006CAB9B /* Products */,
 				F3CDA286595C01E320BE5AEA /* Pods */,
@@ -166,8 +120,7 @@
 				87D49C992143A01D005A761F /* IMG_4770.PNG */,
 				87D49C9B2143A090005A761F /* IMG_4771.PNG */,
 				8708223D21443BB300DD504C /* IMG_4772.png */,
-				870822402144577000DD504C /* profile.swift */,
-				87D49C9F2143EF98005A761F /* Charts.xcodeproj */,
+				8708225E2144E02B00DD504C /* ios */,
 			);
 			path = pennapps;
 			sourceTree = "<group>";
@@ -198,7 +151,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				87D49CAB2143EFC9005A761F /* PBXTargetDependency */,
 			);
 			name = pennapps;
 			productName = pennapps;
@@ -232,12 +184,6 @@
 			mainGroup = 87E5A9092143603D006CAB9B;
 			productRefGroup = 87E5A9132143603D006CAB9B /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 87D49CA02143EF98005A761F /* Products */;
-					ProjectRef = 87D49C9F2143EF98005A761F /* Charts.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				87E5A9112143603D006CAB9B /* pennapps */,
@@ -245,28 +191,12 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		87D49CA52143EF98005A761F /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = 87D49CA42143EF98005A761F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		87D49CA72143EF98005A761F /* ChartsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ChartsTests.xctest;
-			remoteRef = 87D49CA62143EF98005A761F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		87E5A9102143603D006CAB9B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8708225F2144E02B00DD504C /* ios in Resources */,
 				87D49C9C2143A090005A761F /* IMG_4771.PNG in Resources */,
 				87D49C9221439E95005A761F /* IMG_4768.PNG in Resources */,
 				87E5A9222143603D006CAB9B /* LaunchScreen.storyboard in Resources */,
@@ -330,20 +260,11 @@
 				87E5A91A2143603D006CAB9B /* SecondViewController.swift in Sources */,
 				87E5A9162143603D006CAB9B /* AppDelegate.swift in Sources */,
 				87D5B47321440F2C0087BEB4 /* AddViewController.swift in Sources */,
-				870822412144577000DD504C /* profile.swift in Sources */,
 				87E5A9182143603D006CAB9B /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		87D49CAB2143EFC9005A761F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Charts;
-			targetProxy = 87D49CAA2143EFC9005A761F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		87E5A91B2143603D006CAB9B /* Main.storyboard */ = {
