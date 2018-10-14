@@ -102,6 +102,7 @@ class FirstViewController: UIViewController {
         self.lineChartView.xAxis.granularity = 1
         self.lineChartView.leftAxis.granularity = 1
         self.lineChartView.rightAxis.granularity = 1
+        self.lineChartView.chartDescription?.text = ""
         
     }
 

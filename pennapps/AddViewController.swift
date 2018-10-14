@@ -40,6 +40,13 @@ class AddViewController: UIViewController, MFMailComposeViewControllerDelegate {
     }
     
     func configureMailController() -> MFMailComposeViewController {
+        
+        var desc = descriptionView.text
+        if desc == nil {
+            desc = ""
+        }
+        
+        
         let mailComposerVC = MFMailComposeViewController()
         
         mailComposerVC.mailComposeDelegate = self
@@ -48,7 +55,7 @@ class AddViewController: UIViewController, MFMailComposeViewControllerDelegate {
         
         mailComposerVC.setSubject("Event Added to Still!")
         
-        mailComposerVC.setMessageBody("how are you?", isHTML: false)
+        mailComposerVC.setMessageBody(desc!, isHTML: false)
         
         return mailComposerVC
     }
